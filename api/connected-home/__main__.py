@@ -1,3 +1,10 @@
+"""
+    connected-home.__main__
+    ~~~~~~~~~~~~~~
+
+    by Data-Centric Design Lab
+    :license: MIT
+"""
 
 from flask import Flask, request
 from flask_socketio import SocketIO, emit

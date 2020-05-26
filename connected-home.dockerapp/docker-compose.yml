@@ -3,6 +3,7 @@ services:
     # frontend:
     #     build:
     #         context: ../frontend
+    #     container_name: connected-home-api
     #     #image: datacentricdesign/connected-home
     #     ports:
     #      - "8080:80"
@@ -12,6 +13,7 @@ services:
     api:
         build:
             context: ../api
+        container_name: connected-home-api
         #image: datacentricdesign/connected-home
         ports:
             - "8081:80"

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from setuptools import setup, find_packages
 
-with open('../README.md', 'r', 'utf-8') as f:
-    readme = f.read()
+with open("README.md", "r") as fh:
+    long_description = fh.read()
 
 requires = [
     'Flask>=1.1.2',
@@ -22,7 +22,7 @@ setup(
     packages=find_packages(exclude=("tests",)),
     install_requires=requires,
     tests_require=test_requirements,
-    long_description=readme,
+    long_description=long_description,
     long_description_content_type='text/markdown',
     classifiers=[
         "Programming Language :: Python",
