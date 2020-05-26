@@ -31,10 +31,10 @@ pip install twine bumpversion
 ```
 
 Then, we use bumpversion to increment the new version. In the example below,
-change the version to the current one
+change the version to the current one. Choose from major, minor or patch version.
 
 ```
-bumpversion --current-version 0.0.1 minor setup.py connected_home/__init__.py
+bumpversion --current-version 0.0.1 patch setup.py connected_home/__init__.py
 ```
 
 ```
