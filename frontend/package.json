@@ -1,6 +1,15 @@
 {
-  "name": "paper-dashboard-angular",
-  "version": "2.1.0",
+  "name": "connected-home",
+  "version": "0.0.1",
+  "description": "Connected Home is a teaching environment simulating a connected home. The aim is to enable industrial product designers to experience software-based product development.",
+  "homepage": "https://github.com/datacentricdesign/connected-home#README",
+  "bugs": {
+    "url": "https://github.com/datacentricdesign/connected-home/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/datacentricdesign/connected-home.git"
+  },
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -11,7 +20,7 @@
     "e2e": "ng e2e",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "9.0.6",
     "@angular/common": "9.0.6",
