@@ -51,13 +51,13 @@ def handle_json(json):
 def send_ws_message(json):
     emit('json', json, broadcast=True)
 
-light1 = Light('Test light', ws=send_ws_message)
-switch1 = Switch('Test switch', ws=send_ws_message)
+light1 = Light('Test light')
+switch1 = Switch('Test switch')
 switch1.switch_on()
 
 things = [light1, switch1]
 
 if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0')
+    socketio.run(app, host='0.0.0.0', port=8888)
     
 

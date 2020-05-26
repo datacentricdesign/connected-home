@@ -4,7 +4,7 @@ from .thing import Thing
 class Switch(Thing):
     """Definition of a Switch."""
 
-    def __init__(self, name='Test Switch', status=False, ws=None):
+    def __init__(self, name='Test Switch', status=False):
         """
         Switch Constructor
 
@@ -15,7 +15,7 @@ class Switch(Thing):
         status
             A boolean to set the status of the switch.
         """
-        super().__init__(name, ws=ws)
+        super().__init__(name)
         self.status = status
         self.controls.extend(["switch_on", "switch_off", "toggle"])
         self.type = __class__.__name__

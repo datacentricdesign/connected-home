@@ -4,7 +4,7 @@ from .thing import Thing
 class Light(Thing):
     """Definition of a Light."""
 
-    def __init__(self, name='Test Light', status=False, ws=None):
+    def __init__(self, name='Test Light', status=False):
         """
         Light Constructor
 
@@ -15,7 +15,7 @@ class Light(Thing):
         status
             A boolean to set the status of the light.
         """
-        super().__init__(name, ws=ws)
+        super().__init__(name)
         self.status = False
         self.controls.extend(["turn_on", "turn_off"])
         self.type = __class__.__name__

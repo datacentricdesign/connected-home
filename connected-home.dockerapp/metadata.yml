@@ -1,0 +1,10 @@
+# Version of the application
+version: 0.1.0
+# Name of the application
+name: connected-home
+# A short description of the application
+description: Connected Home is a teaching environment simulating a connected home. The aim is to enable industrial product designers to experience software-based product development.
+# List of application maintainers with name and email for each
+maintainers:
+  - name: Data-Centric Design Lab
+    email: lab@datacentricdesign.org
