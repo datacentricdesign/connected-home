@@ -1,0 +1,19 @@
+version: "3.6"
+services:
+    frontend:
+        build:
+            context: ../frontend
+        container_name: connected-home-ui
+        #image: datacentricdesign/connected-home
+        ports:
+         - "4200:80"
+        environment:
+         - NGINX_HOST=localhost
+         - NGINX_PORT=80
+    api:
+        build:
+            context: ../api
+        container_name: connected-home-api
+        #image: datacentricdesign/connected-home
+        ports:
+            - "5000:8888"
