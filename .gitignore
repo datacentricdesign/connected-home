@@ -70,3 +70,6 @@ connected_home/.DS_Store
 
 # IDEs
 .vscode
+
+# OS files
+.DS_Store
