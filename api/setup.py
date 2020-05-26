@@ -15,7 +15,7 @@ test_requirements = [
 
 setup(
     name="connected-home",
-    version="0.0.1",
+    version="0.0.2",
     description="A teaching environment simulating a connected home.",
     license="MIT",
     author="Data-Centric Design Lab <lab@datacentricdesign.org>",
