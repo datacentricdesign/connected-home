@@ -67,3 +67,6 @@ target/
 .python-version
 venv
 connected_home/.DS_Store
+
+# IDEs
+.vscode
