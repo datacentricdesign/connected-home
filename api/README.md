@@ -14,7 +14,7 @@ change the version to the current one. Choose from major, minor or patch version
 
 ```
 cd ./api
-bumpversion --current-version 0.0.1 patch setup.py connected_home/__init__.py
+bumpversion --current-version 0.0.1 patch setup.py connected-home/__init__.py
 ```
 
 ```
