@@ -165,8 +165,108 @@ We switch to the branch 'develop', so that we do not mess we the master branch.
 git checkout develop
 ```
 
-From this branch, we create a new feature branch to start developing new 
+From this branch, we create a new feature branch to start developing new feature (change 'myfeaturename')
 
 ```
-git checkout 
+git checkout -b feature-myfeaturename develop
+```
+
+We can nown edit the code, run either the API or the UI to test, regularly stage, commit and push changes.
+
+Once the feature works as intented and all changes are committed, it is time to merge it with the develop branch.
+
+We go back to the develop branch
+
+```
+git checkout develop
+```
+
+Execute the merge as follows:
+
+```
+git merge --no-ff feature-myfeaturename
+```
+
+You will be prompt to enter a message in vim, type :x and press enter to save and quit.
+
+We can now delete the feature branch and push the changes
+
+```
+git branch -d feature-myfeaturename
+git push origin develop
+```
+
+## Step 5: Making a new release
+
+To package a new app, all the features to be released must be merged into the develop branch first (step 4).
+
+Once the develop version runs as intented, we can create a new release branch (change 0.0.5 for the appropriate version).
+
+```
+git checkout -b release-0.0.5 develop
+```
+
+For the api, we first we need to install twine and bumpversion
+
+```
+pip install twine bumpversion
+```
+
+Then, we use bumpversion to increment the new version. In the example below,
+change the version to the current one. Choose from major, minor or patch version.
+
+```
+cd ./api
+bumpversion --current-version 0.0.4 patch setup.py connected-home/__init__.py
+```
+
+Then we publish on PyPi with
+
+```
+python setup.py sdist bdist_wheel
+```
+
+For the UI, we need to update the version in the package.json.
+
+Finally, in the connected-home.dockerapp/docker-compose.yml we need to update the version of the docker images '...release-0.0.5'. The docker images will be generated automatically when we push the release on GitHub.
+
+We are ready to commit these changes.
+
+```
+git commit -a -m "Bumped version number to 0.0.5"
+```
+
+Let's now merge the release with the master branch and create a tag
+
+```
+git checkout master
+git merge --no-ff release-0.0.5
+git tag -a 0.0.5
+```
+
+Let's push everything on GitHub, including the new tag.
+
+```
+git push --follow-tags
+```
+
+When the docker hub is done building the api and app-ui image, we can create a new version of the docker app.
+
+```
+docker app bundle connected-home.dockerapp -t datacentricdesign/connected-home:0.0.5
+docker app validate connected-home.dockerapp
+docker app push connected-home --tag  datacentricdesign/connected-home:0.0.5
+```
+
+We catchup our develop branch with the release branch
+
+```
+git checkout develop
+git merge --no-ff release-0.0.5
+```
+
+And we get rid of the release branch
+
+```
+git branch -d release-0.0.5
 ```
