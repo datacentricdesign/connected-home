@@ -1,1 +1,3 @@
 
+port-api: 5000
+port-app-ui: 4200

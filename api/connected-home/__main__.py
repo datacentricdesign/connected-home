@@ -65,6 +65,6 @@ switch1.switch_on()
 things = [light1, switch1]
 
 if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0', port=8888)
+    socketio.run(app, host='0.0.0.0', port=80)
     
 
