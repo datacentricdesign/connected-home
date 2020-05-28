@@ -4,7 +4,7 @@ services:
         # build:
         #     context: ../app-ui
         container_name: app-ui
-        image: datacentricdesign/connected-home-app-ui:release-0.0.4
+        image: datacentricdesign/connected-home-app-ui:release-0.0.6
         ports:
          - "${port-app-ui}:80"
         environment:
@@ -14,6 +14,6 @@ services:
         # build:
         #     context: ../api
         container_name: api
-        image: datacentricdesign/connected-home-api:release-0.0.4
+        image: datacentricdesign/connected-home-api:release-0.0.6
         ports:
             - "${port-api}:80"
