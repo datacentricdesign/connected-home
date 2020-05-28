@@ -220,13 +220,26 @@ cd ./api
 bumpversion --current-version 0.0.4 patch setup.py connected-home/__init__.py
 ```
 
-Then we publish on PyPi with
+Let's package the api library:
 
 ```
 python setup.py sdist bdist_wheel
 ```
 
+Then, we publish on PyPi with (this step requires credentials):
+
+```
+python -m twine upload dist/*
+```
+
 For the UI, we need to update the version in the package.json.
+
+The ui can be updated on NPM with (this step requires credentials):
+
+```
+cd app-ui
+npm publish
+```
 
 Finally, in the connected-home.dockerapp/docker-compose.yml we need to update the version of the docker images '...release-0.0.5'. The docker images will be generated automatically when we push the release on GitHub.
 
