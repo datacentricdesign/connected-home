@@ -2,7 +2,7 @@ FROM python:3
 
 WORKDIR /usr/src/app
 
-COPY requirements.txt ./
+COPY docker-requirements.txt ./
 RUN pip install -r docker-requirements.txt
 
 # The -u option avoid Docker to hang on 'attaching...' when Python start
