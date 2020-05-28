@@ -13,7 +13,7 @@ Once Docker is running on your machine, go to Docker settings (Preferences on Ma
 In the terminal, run the following command:
 
 ```sh
-docker app install datacentricdesign/connected-home:0.0.4
+docker app install datacentricdesign/connected-home:0.0.6
 ```
 
 # What Does it Do
