@@ -47,8 +47,10 @@ def control(thing_id, control_id):
 @app.route('/things', methods = ['POST'])
 def create():
     global things
-    things.append(Thing(request.json["name"]))
-    return 'Added thing!'
+    module = __import__("connected-home.entities." + request.json["type"].lower(), fromlist=['object'])
+    ThingClass = getattr(module, request.json["type"])
+    things.append(ThingClass(request.json["name"]))
+    return 'Added thing of type ' + request.json["type"] + '!'
 
 @socketio.on('json')
 def handle_json(json):
