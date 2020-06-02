@@ -6,8 +6,8 @@ Requirements:
 
 - Git[Git Official Home Page](https://git-scm.com/downloads).
 - Install VisualStudio Code[VSCode](https://code.visualstudio.com) and then Python extension [Python Plugin](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-- Install Python 3.7.3 from [Python Official Website](https://www.python.org/downloads/release/python-373/)
-- virtualenv[Installation of virtualenv through pip](https://virtualenv.pypa.io/en/latest/installation.html)
+- Install Python 3.7.3 from [Python Official Website](https://www.python.org/downloads/release/python-373/) (Make sure you set environment variable(Windows) or PATH(MAC) to use the python command from command line or terminal )
+- virtualenv[Installation of virtualenv through pip](https://virtualenv.pypa.io/en/latest/installation.html) (Use Via pip method to install virtualenv)
 - Install NodeJs from [NodeJs Official Page](https://nodejs.org/en).
 
 ## Step 1: get the code
