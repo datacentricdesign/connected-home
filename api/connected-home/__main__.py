@@ -14,6 +14,8 @@ import json
 from .entities.thing import Thing
 from .entities.light import Light
 from .entities.switch import Switch
+from .entities.dimmer import Dimmer
+from .entities.dimmableLight import DimmableLight
 
 app = Flask(__name__)
 CORS(app)
@@ -21,7 +23,7 @@ CORS(app)
 
 def findThingById(thing_id):
     for thing in things:
-        print(thing.id)
+        # print(thing.id)
         if thing.id == thing_id:
             return thing
 
@@ -43,9 +45,14 @@ def read(thing_id):
 
 @app.route('/things/<path:thing_id>/controls/<path:control_id>', methods=['GET'])
 def control(thing_id, control_id):
-    print('control ' + control_id + ' of ' + thing_id)
+    # print('control ' + control_id + ' of ' + thing_id)
     response = {}
-    response["result"] = getattr(findThingById(thing_id), control_id)()
+    if request.args.get('value'):
+        value = request.args.get('value')
+        response["result"] = getattr(
+            findThingById(thing_id), control_id)(value)
+    else:
+        response["result"] = getattr(findThingById(thing_id), control_id)()
     return json.dumps(response)
 
 
@@ -71,9 +78,11 @@ def send_ws_message(json):
 
 light1 = Light('Test light')
 switch1 = Switch('Test switch')
+dimmer1 = Dimmer('Test Dimmer')
+dimmableLight1 = DimmableLight('Test Dimmable Light')
 switch1.switch_on()
 
-things = [light1, switch1]
+things = [light1, switch1, dimmer1, dimmableLight1]
 
 if __name__ == '__main__':
     socketio.run(app, host='0.0.0.0', port=80)

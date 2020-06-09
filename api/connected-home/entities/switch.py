@@ -1,6 +1,7 @@
 import time
 from .thing import Thing
 
+
 class Switch(Thing):
     """Definition of a Switch."""
 

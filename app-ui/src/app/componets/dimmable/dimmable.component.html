@@ -1,0 +1,47 @@
+<div class="card card-stats">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-5 col-md-4">
+        <div [className]="thing.status ? 'text-warning' : ''">
+          <div class="icon-big text-center icon-warning">
+            <i class="nc-icon nc-bulb-63"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-7 col-md-8">
+        <div class="numbers">
+          <p class="card-category">
+            {{ thing.name }}
+          </p>
+        </div>
+        <div
+          *ngFor="let control of thing.controls_formated; let iControl = index"
+          style="text-align: right;"
+          (click)="fireControl(iControl)"
+        >
+          <i
+            class="nc-icon nc-send text-warning"
+            *ngIf="!control['brightness']"
+          ></i>
+          {{ control }}<br />
+        </div>
+        <div style="text-align: right;">
+          <mat-slider
+            min="0"
+            max="100"
+            step="1"
+            value="1"
+            (input)="slideChange($event)"
+          ></mat-slider>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <hr />
+    <div class="stats">
+      <i class="fa fa-refresh"></i>
+      {{ thing.lastUpdateText }}
+    </div>
+  </div>
+</div>
