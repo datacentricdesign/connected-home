@@ -14,15 +14,19 @@
             {{ thing.name }}
           </p>
         </div>
-        <div style="text-align: right;">
+        <div
+          *ngFor="let control of thing.controls_formated; let iControl = index"
+          style="text-align: right;"
+        >
           <mat-slider
             min="0"
             max="100"
             step="1"
-            value="1"
-            (input)="slideChange($event)"
-          ></mat-slider>
-          {{ thing["controls_formated"] }}
+            value="0"
+            (input)="slideChange($event, iControl)"
+          >
+          </mat-slider>
+          <!-- {{ control }} -->
         </div>
       </div>
     </div>
