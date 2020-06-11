@@ -21,7 +21,7 @@ class DimmableLight(Light):
         super().__init__(name)
         self.status = False
         self.value = value
-        # self.controls.extend(["brightness"])
+        self.controls.extend(["brightness"])
         self.type = __class__.__name__
         self.update()
 

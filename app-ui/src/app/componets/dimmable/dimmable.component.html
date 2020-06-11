@@ -17,22 +17,30 @@
         <div
           *ngFor="let control of thing.controls_formated; let iControl = index"
           style="text-align: right;"
-          (click)="fireControl(iControl)"
         >
-          <i
-            class="nc-icon nc-send text-warning"
-            *ngIf="!control['brightness']"
-          ></i>
-          {{ control }}<br />
+          <div *ngIf="control !== 'BRIGHTNESS'" (click)="fireControl(iControl)">
+            <i class="nc-icon nc-send text-warning"></i>
+            {{ control }}<br />
+          </div>
         </div>
-        <div style="text-align: right;">
-          <mat-slider
-            min="0"
-            max="100"
-            step="1"
-            value="1"
-            (input)="slideChange($event)"
-          ></mat-slider>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div
+          *ngFor="let control of thing.controls_formated; let iControl = index"
+          style="text-align: right;"
+        >
+          <div *ngIf="control === 'BRIGHTNESS'">
+            <mat-slider
+              min="0"
+              max="100"
+              step="1"
+              value="0"
+              (input)="slideChange($event, iControl)"
+            ></mat-slider>
+            {{ control }}
+          </div>
         </div>
       </div>
     </div>
