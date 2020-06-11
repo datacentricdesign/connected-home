@@ -21,13 +21,13 @@ export class DimmerComponent implements OnInit {
     return value;
   }
 
-  slideChange(event: any) {
+  slideChange(event: any, controlIndex) {
     this.http
       .get(
         "http://localhost:80/things/" +
           this.thing["id"] +
           "/controls/" +
-          this.thing["controls"][0] +
+          this.thing["controls"][controlIndex] +
           "?value=" +
           event.value +
           ""
