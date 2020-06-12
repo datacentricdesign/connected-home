@@ -1,0 +1,89 @@
+<div class="card card-stats">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-5 col-md-4">
+        <div [className]="thing.status ? 'text-warning' : ''">
+          <div class="icon-big text-center icon-warning">
+            <i class="nc-icon nc-bulb-63"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-7 col-md-8">
+        <div class="numbers">
+          <p class="card-category">
+            {{ thing.name }}
+          </p>
+        </div>
+        <div
+          *ngFor="let control of thing.controls_formated; let iControl = index"
+          style="text-align: right;"
+        >
+          <div
+            *ngIf="control !== 'BRIGHTNESS' && control !== 'RGBCOLOR'"
+            (click)="fireControl(iControl)"
+          >
+            <i class="nc-icon nc-send text-warning"></i>
+            {{ control }}<br />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div
+          *ngFor="let control of thing.controls_formated; let iControl = index"
+          style="text-align: right;"
+        >
+          <div *ngIf="control === 'RGBCOLOR'" class="span1">
+            <mat-slider
+              min="0"
+              max="255"
+              step="1"
+              value="0"
+              (input)="colorRed($event, iControl)"
+            ></mat-slider>
+            <span style="color: Red;">R</span>
+          </div>
+          <div *ngIf="control === 'RGBCOLOR'">
+            <mat-slider
+              min="0"
+              max="255"
+              step="1"
+              value="0"
+              (input)="colorGreen($event, iControl)"
+            ></mat-slider>
+            <span style="color: green;">G</span>
+          </div>
+          <div *ngIf="control === 'RGBCOLOR'">
+            <mat-slider
+              min="0"
+              max="255"
+              step="1"
+              value="0"
+              (input)="colorBlue($event, iControl)"
+            ></mat-slider>
+            <span style="color: blue;">B</span>
+          </div>
+          <div *ngIf="control === 'BRIGHTNESS'">
+            <mat-slider
+              min="0"
+              max="100"
+              step="1"
+              value="0"
+              (input)="slideChange($event, iControl)"
+            ></mat-slider>
+            {{ control }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <hr />
+      <div class="stats">
+        <i class="fa fa-refresh"></i>
+        {{ thing.lastUpdateText }}
+      </div>
+    </div>
+  </div>
+</div>

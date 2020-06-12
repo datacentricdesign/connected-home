@@ -1,0 +1,7 @@
+.square {
+  position: relative;
+  text-align: right;
+  width: 20px;
+  height: 20px;
+  border: 1px solid red;
+}

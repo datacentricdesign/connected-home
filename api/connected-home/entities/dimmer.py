@@ -21,7 +21,7 @@ class Dimmer(Thing):
 
         super().__init__(name)
         self.value = value
-        self.status = False
+        self.status = status
         self.controls.extend(["dimmer"])
         self.type = __class__.__name__
         self.update()

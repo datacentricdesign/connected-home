@@ -16,6 +16,7 @@ from .entities.light import Light
 from .entities.switch import Switch
 from .entities.dimmer import Dimmer
 from .entities.dimmableLight import DimmableLight
+from .entities.coloredLight import ColoredLight
 
 app = Flask(__name__)
 CORS(app)
@@ -80,9 +81,10 @@ light1 = Light('Test light')
 switch1 = Switch('Test switch')
 dimmer1 = Dimmer('Test Dimmer')
 dimmableLight1 = DimmableLight('Test Dimmable Light')
+coloredLight1 = ColoredLight('Test Colored Light')
 switch1.switch_on()
 
-things = [light1, switch1, dimmer1, dimmableLight1]
+things = [light1, switch1, dimmer1, dimmableLight1, coloredLight1]
 
 if __name__ == '__main__':
     socketio.run(app, host='0.0.0.0', port=80)

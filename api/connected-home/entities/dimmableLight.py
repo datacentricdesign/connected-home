@@ -1,11 +1,10 @@
-import time
 from .light import Light
 
 
 class DimmableLight(Light):
-    """Definition of a Dimmable."""
+    """Definition of a Dimmable  Light"""
 
-    def __init__(self, name='Test DimmableLight', value=0, status=False):
+    def __init__(self, name='Test Dimmable Light', value=0, status=False):
         """
         DimmableLight Constructor
 
@@ -16,7 +15,7 @@ class DimmableLight(Light):
         value
             An interger to set the brightness level.
         status
-            An integer to set the brightness of the light.
+            A boolean to set the status of the switch.
         """
         super().__init__(name)
         self.status = False
@@ -30,6 +29,6 @@ class DimmableLight(Light):
         Change the value of brightness according to slider.
         """
         self.value = value
-        print('Brightness Level' + value + '!')
+        print('Brightness Level' + self.value + '!')
         self.update()
         return True
