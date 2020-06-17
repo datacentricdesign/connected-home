@@ -13,7 +13,7 @@ export class ColoredLightComponent implements OnInit {
   red: number = 0;
   green: number = 0;
   blue: number = 0;
-
+  rgbColor: [0, 0, 0];
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
@@ -48,6 +48,7 @@ export class ColoredLightComponent implements OnInit {
         console.log(data);
       });
   }
+
   colorRed(event: any, controlIndex) {
     this.red = event.value;
     this.sendColor(controlIndex);
@@ -55,6 +56,7 @@ export class ColoredLightComponent implements OnInit {
       "Red: " + this.red + ", Green: " + this.green + ", Blue: " + this.blue
     );
   }
+
   colorGreen(event: any, controlIndex) {
     this.green = event.value;
     this.sendColor(controlIndex);
@@ -77,11 +79,11 @@ export class ColoredLightComponent implements OnInit {
           this.thing["id"] +
           "/controls/" +
           this.thing["controls"][controlIndex] +
-          "?red=" +
+          "?value[]=" +
           this.red +
-          "&green=" +
+          "&value[]=" +
           this.green +
-          "&blue=" +
+          "&value[]=" +
           this.blue
       )
       .subscribe((data: any) => {

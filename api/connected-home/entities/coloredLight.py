@@ -4,7 +4,7 @@ from .dimmableLight import DimmableLight
 class ColoredLight(DimmableLight):
     """Definition of a Colored Light."""
 
-    def __init__(self, name='Test Colored Light', red=0, green=0, blue=0, status=False):
+    def __init__(self, name='Test Colored Light', value=[0, 0, 0], status=False):
         """
         Colored Light Constructor
 
@@ -22,22 +22,18 @@ class ColoredLight(DimmableLight):
             A boolean to set the status of the switch.
         """
         super().__init__(name)
-        self.status = status
-        self.red = red
-        self.green = green
-        self.blue = blue
+        self.status = False
+        self.value = [0, 0, 0]
         self.controls.extend(["rgbColor"])
         self.type = __class__.__name__
         self.update()
 
-    def rgbColor(self, r=0, g=0, b=0):
+    def rgbColor(self, value=[0, 0, 0]):
         """
         Change the value of rgb color according to each slider.
         """
-        # self.red = r
-        # self.green = g
-        # self.blue = b
-        print('RGB Value: (' + str(self.red) + ', ' +
-              str(self.green) + ', ' + str(self.blue) + ')')
+        self.value = value[0], value[1], value[2]
+
+        print('RGB Value:' + str(self.value))
         self.update()
         return True

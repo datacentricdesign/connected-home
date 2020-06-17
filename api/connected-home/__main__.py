@@ -48,10 +48,15 @@ def read(thing_id):
 def control(thing_id, control_id):
     # print('control ' + control_id + ' of ' + thing_id)
     response = {}
-    if request.args.get('value'):
-        value = request.args.get('value')
+    if request.args.get('value[]'):
+        # print(request.args.get('value[]'))
+        values = request.args.getlist('value[]')
         response["result"] = getattr(
-            findThingById(thing_id), control_id)(value)
+            findThingById(thing_id), control_id)(values)
+    elif request.args.get('value'):
+        values = request.args.get('value')
+        response["result"] = getattr(
+            findThingById(thing_id), control_id)(values)
     else:
         response["result"] = getattr(findThingById(thing_id), control_id)()
     return json.dumps(response)

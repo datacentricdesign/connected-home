@@ -29,6 +29,6 @@ class DimmableLight(Light):
         Change the value of brightness according to slider.
         """
         self.value = value
-        print('Brightness Level' + self.value + '!')
+        print('Brightness Level: ' + self.value + '!')
         self.update()
         return True
