@@ -15,6 +15,9 @@
     <div *ngIf="thing.type === 'DimmableLight'">
       <dimmable-cmp [thing]="thing"></dimmable-cmp>
     </div>
+    <div *ngIf="thing.type === 'ColoredLight'">
+      <colored-light-cmp [thing]="thing"></colored-light-cmp>
+    </div>
   </div>
 </div>
 

@@ -16,6 +16,7 @@ from .entities.light import Light
 from .entities.switch import Switch
 from .entities.dimmer import Dimmer
 from .entities.dimmableLight import DimmableLight
+from .entities.coloredLight import ColoredLight
 
 app = Flask(__name__)
 CORS(app)
@@ -47,10 +48,15 @@ def read(thing_id):
 def control(thing_id, control_id):
     # print('control ' + control_id + ' of ' + thing_id)
     response = {}
-    if request.args.get('value'):
-        value = request.args.get('value')
+    if request.args.get('value[]'):
+        # print(request.args.get('value[]'))
+        values = request.args.getlist('value[]')
         response["result"] = getattr(
-            findThingById(thing_id), control_id)(value)
+            findThingById(thing_id), control_id)(values)
+    elif request.args.get('value'):
+        values = request.args.get('value')
+        response["result"] = getattr(
+            findThingById(thing_id), control_id)(values)
     else:
         response["result"] = getattr(findThingById(thing_id), control_id)()
     return json.dumps(response)
@@ -80,9 +86,10 @@ light1 = Light('Test light')
 switch1 = Switch('Test switch')
 dimmer1 = Dimmer('Test Dimmer')
 dimmableLight1 = DimmableLight('Test Dimmable Light')
+coloredLight1 = ColoredLight('Test Colored Light')
 switch1.switch_on()
 
-things = [light1, switch1, dimmer1, dimmableLight1]
+things = [light1, switch1, dimmer1, dimmableLight1, coloredLight1]
 
 if __name__ == '__main__':
     socketio.run(app, host='0.0.0.0', port=80)

@@ -18,10 +18,15 @@ import { ThingsComponent } from "./things/things.component";
 import { LightComponent } from "./componets/light/light.component";
 import { SwitchComponent } from "./componets/switch/switch.component";
 import { DimmerComponent } from "./componets/dimmer/dimmer.component";
+import { DimmableComponent } from "./componets/dimmable/dimmable.component";
+import { ColoredLightComponent } from "./componets/colored-light/colored-light.component";
 
 //ng-material
 import { MatSliderModule } from "@angular/material/slider";
-import { DimmableComponent } from "./componets/dimmable/dimmable.component";
+import { MatIconModule } from "@angular/material/icon";
+
+//ng--color picker
+import { ColorPickerModule } from "ngx-color-picker";
 
 @NgModule({
   declarations: [
@@ -32,6 +37,7 @@ import { DimmableComponent } from "./componets/dimmable/dimmable.component";
     SwitchComponent,
     DimmerComponent,
     DimmableComponent,
+    ColoredLightComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -45,6 +51,8 @@ import { DimmableComponent } from "./componets/dimmable/dimmable.component";
     FixedPluginModule,
     HttpClientModule,
     MatSliderModule,
+    ColorPickerModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
