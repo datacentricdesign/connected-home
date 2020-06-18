@@ -21,6 +21,9 @@
     <div *ngIf="thing.type === 'MotionSensor'">
       <motion-sensor-cmp [thing]="thing"></motion-sensor-cmp>
     </div>
+    <div *ngIf="thing.type === 'ClimateSensor'">
+      <climate-sensor-cmp [thing]="thing"></climate-sensor-cmp>
+    </div>
   </div>
 </div>
 

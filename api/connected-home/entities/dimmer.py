@@ -5,7 +5,7 @@ from .thing import Thing
 class Dimmer(Thing):
     """Definition of a Dimmer"""
 
-    def __init__(self, name='Test Dimmer', value=0, status=False):
+    def __init__(self, name='Test Dimmer', status=False):
         """
         Dimmer Constructor
 
@@ -20,7 +20,6 @@ class Dimmer(Thing):
         """
 
         super().__init__(name)
-        self.value = value
         self.status = status
         self.controls.extend(["dimmer"])
         self.type = __class__.__name__

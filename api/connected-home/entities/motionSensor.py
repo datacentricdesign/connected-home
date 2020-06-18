@@ -5,7 +5,7 @@ from .thing import Thing
 class MotionSensor (Thing):
     """Definition of a Motion Sensor."""
 
-    def __init__(self, name='Test Motion Sensor', status=False):
+    def __init__(self, name='Test Motion Sensor'):
         """
         Switch Constructor
 
@@ -13,8 +13,6 @@ class MotionSensor (Thing):
         ---------
         name
             A string to assign to the `name` instance attribute.
-        status
-            A boolean to set the status of the Motion Event.
         """
         super().__init__(name)
 

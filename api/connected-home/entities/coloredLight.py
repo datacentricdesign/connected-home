@@ -4,7 +4,7 @@ from .dimmableLight import DimmableLight
 class ColoredLight(DimmableLight):
     """Definition of a Colored Light."""
 
-    def __init__(self, name='Test Colored Light', value=[0, 0, 0], status=False):
+    def __init__(self, name='Test Colored Light', status=False):
         """
         Colored Light Constructor
 
@@ -23,7 +23,6 @@ class ColoredLight(DimmableLight):
         """
         super().__init__(name)
         self.status = False
-        self.value = [0, 0, 0]
         self.controls.extend(["rgbColor"])
         self.type = __class__.__name__
         self.update()
