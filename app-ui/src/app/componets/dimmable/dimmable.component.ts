@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit, Input } from "@angular/core";
-import { Thing } from "app/things/things.component";
+import { Thing } from "app/classes";
 
 @Component({
   selector: "dimmable-cmp",
