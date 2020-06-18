@@ -20,6 +20,7 @@ from .entities.coloredLight import ColoredLight
 from .entities.motionSensor import MotionSensor
 from .entities.climateSensor import ClimateSensor
 from .entities.lock import Lock
+from .entities.lightSensor import LightSensor
 
 app = Flask(__name__)
 CORS(app)
@@ -93,10 +94,11 @@ coloredLight1 = ColoredLight('Test Colored Light')
 motionSensor1 = MotionSensor('Test Motion Sensor')
 climateSensor1 = ClimateSensor('Test Climate Sensor')
 lock1 = Lock('Test Door Lock')
+lightSensor1 = LightSensor('Test Light Sensor')
 switch1.switch_on()
 
 things = [light1, switch1, dimmer1,
-          dimmableLight1, coloredLight1, motionSensor1, climateSensor1, lock1]
+          dimmableLight1, coloredLight1, motionSensor1, climateSensor1, lock1, lightSensor1]
 
 if __name__ == '__main__':
     socketio.run(app, host='0.0.0.0', port=80)

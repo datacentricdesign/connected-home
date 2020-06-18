@@ -27,6 +27,9 @@
     <div *ngIf="thing.type === 'Lock'">
       <lock-cmp [thing]="thing"></lock-cmp>
     </div>
+    <div *ngIf="thing.type === 'LightSensor'">
+      <light-sensor-cmp [thing]="thing"></light-sensor-cmp>
+    </div>
   </div>
 </div>
 
