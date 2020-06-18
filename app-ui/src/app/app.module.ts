@@ -29,6 +29,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { ColorPickerModule } from "ngx-color-picker";
 import { MotionSensorComponent } from "./componets/motion-sensor/motion-sensor.component";
 import { ClimateSensorComponent } from './componets/climate-sensor/climate-sensor.component';
+import { LockComponent } from './componets/lock/lock.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ClimateSensorComponent } from './componets/climate-sensor/climate-senso
     ColoredLightComponent,
     MotionSensorComponent,
     ClimateSensorComponent,
+    LockComponent,
   ],
   imports: [
     BrowserAnimationsModule,

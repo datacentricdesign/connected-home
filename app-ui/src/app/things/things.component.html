@@ -24,6 +24,9 @@
     <div *ngIf="thing.type === 'ClimateSensor'">
       <climate-sensor-cmp [thing]="thing"></climate-sensor-cmp>
     </div>
+    <div *ngIf="thing.type === 'Lock'">
+      <lock-cmp [thing]="thing"></lock-cmp>
+    </div>
   </div>
 </div>
 
