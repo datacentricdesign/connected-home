@@ -9,6 +9,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class MotionSensorComponent implements OnInit {
   @Input() thing: Thing[];
+  blink = false;
 
   constructor(private http: HttpClient) {}
 
@@ -25,7 +26,13 @@ export class MotionSensorComponent implements OnInit {
           this.thing["controls"][controlIndex]
       )
       .subscribe((data: any) => {
-        console.log(data);
+        if (data.result) {
+          this.blink = true;
+        }
+        setTimeout(() => {
+          this.blink = false;
+        }, 4000);
+        console.log(data.result);
       });
   }
 }
