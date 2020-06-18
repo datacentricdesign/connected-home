@@ -1,0 +1,20 @@
+.blinking {
+  animation: blinkingIcon 0.8s infinite;
+}
+@keyframes blinkingIcon {
+  0% {
+    color: #fbc658;
+  }
+  49% {
+    color: #fbc658;
+  }
+  60% {
+    color: transparent;
+  }
+  99% {
+    color: transparent;
+  }
+  100% {
+    color: #fbc658;
+  }
+}

@@ -4,17 +4,7 @@ import { Observable, throwError } from "rxjs";
 import { webSocket, WebSocketSubject } from "rxjs/webSocket";
 import { map, catchError } from "rxjs/operators";
 import * as moment from "moment";
-
-export interface Thing {
-  id: string;
-  name: string;
-  last_update: number;
-  type: string;
-  status: boolean;
-  lastUpdateText: string;
-  controls: string[];
-  controls_formated: string[];
-}
+import { Thing } from "app/classes";
 
 @Component({
   selector: "things-cmp",
@@ -40,7 +30,7 @@ export class ThingsComponent implements OnInit {
       // Called when connection is closed (for whatever reason)
     );
 
-    this.things$ = this.http.get<Thing[]>("http://localhost:80/things").pipe(
+     this.things$ = this.http.get<Thing[]>("http://localhost:80/things").pipe(
       map((data: Thing[]) => {
         this.things = data;
         for (let index = 0; index < data.length; index++) {

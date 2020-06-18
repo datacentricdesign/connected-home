@@ -18,6 +18,9 @@
     <div *ngIf="thing.type === 'ColoredLight'">
       <colored-light-cmp [thing]="thing"></colored-light-cmp>
     </div>
+    <div *ngIf="thing.type === 'MotionSensor'">
+      <motion-sensor-cmp [thing]="thing"></motion-sensor-cmp>
+    </div>
   </div>
 </div>
 

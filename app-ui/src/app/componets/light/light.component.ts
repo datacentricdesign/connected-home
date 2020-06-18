@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { Thing } from "../../things/things.component";
+import { Thing } from "app/classes";
 import { HttpClient } from "@angular/common/http";
 
 @Component({
