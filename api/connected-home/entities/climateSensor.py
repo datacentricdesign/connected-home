@@ -3,18 +3,16 @@ from .thing import Thing
 
 
 class ClimateSensor(Thing):
-    """Definition of a Motion Sensor."""
+    """Definition of a Climate Sensor."""
 
     def __init__(self, name='Test Climate Sensor'):
         """
-        Switch Constructor
+        Climate Sensor Constructor
 
         Parameters
         ---------
         name
             A string to assign to the `name` instance attribute.
-        status
-            A boolean to set the status of the Motion Event.
         """
         super().__init__(name)
 

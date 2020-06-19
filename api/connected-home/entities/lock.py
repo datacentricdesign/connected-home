@@ -3,9 +3,9 @@ from .thing import Thing
 
 
 class Lock(Thing):
-    """Definition of a Switch."""
+    """Definition of a Lock."""
 
-    def __init__(self, name=''):
+    def __init__(self, name='', status=False):
         """
         Lock Constructor
 
@@ -18,6 +18,7 @@ class Lock(Thing):
         """
         super().__init__(name)
         self.controls.extend(["lock", "unlock", "toggle"])
+        self.status = False
         self.type = __class__.__name__
         self.update()
 

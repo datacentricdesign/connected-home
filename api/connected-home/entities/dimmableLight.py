@@ -12,8 +12,7 @@ class DimmableLight(Light):
         ---------
         name
             A string to assign to the `name` instance attribute.
-        value
-            An interger to set the brightness level.
+
         status
             A boolean to set the status of the switch.
         """
@@ -25,7 +24,7 @@ class DimmableLight(Light):
 
     def brightness(self, value=0):
         """
-        Change the value of brightness according to slider.
+        Change the brightness of light according to slider.
         """
         self.value = value
         print('Brightness Level: ' + self.value + '!')

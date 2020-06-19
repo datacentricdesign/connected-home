@@ -13,8 +13,7 @@ class Dimmer(Thing):
         ---------
         name
             A string to assign to the `name` instance attribute.
-        value
-            An interger to set the dimmer level.
+
         status
             A boolean to set the status of the dimmer if it triggered.
         """

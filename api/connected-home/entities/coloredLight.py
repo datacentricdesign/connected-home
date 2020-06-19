@@ -12,12 +12,7 @@ class ColoredLight(DimmableLight):
         ---------
         name
             A string to assign to the `name` instance attribute.
-        Red
-            An interger to set the red color value.
-        Green
-            An interger to set the green color value.
-        Blue
-            An interger to set the blue color value.
+
         status
             A boolean to set the status of the switch.
         """
