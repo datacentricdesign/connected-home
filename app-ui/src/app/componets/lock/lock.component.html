@@ -1,0 +1,44 @@
+<div class="card card-stats">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-5 col-md-4">
+        <div class="icon-big text-center icon-warning">
+          <span
+            *ngIf="thing.status"
+            class="iconify"
+            data-icon="bx-bxs-lock"
+            data-inline="false"
+          ></span>
+          <span
+            *ngIf="!thing.status"
+            class="iconify"
+            data-icon="bx-bxs-lock-open"
+            data-inline="false"
+          ></span>
+        </div>
+      </div>
+      <div class="col-7 col-md-8">
+        <div class="numbers">
+          <p class="card-category">
+            {{ thing.name }}
+          </p>
+        </div>
+        <div
+          *ngFor="let control of thing.controls_formated; let iControl = index"
+          style="text-align: right;"
+          (click)="fireControl(iControl)"
+        >
+          <i class="nc-icon nc-send text-warning"></i>
+          {{ control }}<br />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <hr />
+    <div class="stats">
+      <i class="fa fa-refresh"></i>
+      {{ thing.lastUpdateText }}
+    </div>
+  </div>
+</div>

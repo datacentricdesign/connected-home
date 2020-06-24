@@ -1,5 +1,6 @@
 import time
 
+
 class Thing:
     """A Thing represents a physical or virtual entity collecting data and offering services."""
 
